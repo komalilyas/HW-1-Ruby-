@@ -12,10 +12,17 @@ def max_2_sum(array)
   array.sort.last(2).inject(0, :+)
 end
 
-def sum_to_n?(arr, number)
-  # YOUR CODE HERE
+def sum_to_n?(array, n)
+  # Store combinations of 2
+  arr = array.combination(2)
+  # Find with a condition
+  sumto_n = arr.find{|a,b| a+b==n}
+  if(sumto_n) 
+    return true
+  else 
+    return false
+  end
 end
-
 # Part 2
 
 def hello(name)
