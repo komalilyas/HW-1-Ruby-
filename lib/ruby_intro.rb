@@ -61,7 +61,6 @@ attr_accessor :isbn
 attr_accessor :price
 
 def price_as_string()
-  # Prefix price with $ and convert price to float number formatted with 2 decimal points
   return "$" + "%0.2f" % [@price.to_f]
 end
 end
