@@ -22,22 +22,46 @@ def sum_to_n?(array, n)
 end
 
 # Part 2
-
+# Concatenate strings using (+)  Hello with name
 def hello(name)
-  # YOUR CODE HERE
+  return "Hello, " + name
 end
 
 def starts_with_consonant?(string)
-  # YOUR CODE HERE
+  regex = /^[^aeiouAEIOU\W]/i
+  if regex.match(string) == nil
+    return false
+  else
+    return true
+  end
 end
 
 def binary_multiple_of_4?(string)
-  # YOUR CODE HERE
+  if !string.empty? and string.chars.all? {|x| x =~ /[01]/} and (string.to_i(2) % 4 == 0)
+    return true
+  end
+  return false
 end
 
 # Part 3
 
 # Object representing a book
 class BookInStock
-  # YOUR CODE HERE
+    def initialize(isbn, price)
+      if price<=0
+        raise ArgumentError, "Price should not positive"
+      end
+      if isbn.empty?
+        raise ArgumentError, "Price should not positive"
+      end
+      @isbn = isbn
+      @price = price
+end
+attr_accessor :isbn
+attr_accessor :price
+
+def price_as_string()
+  # Prefix price with $ and convert price to float number formatted with 2 decimal points
+  return "$" + "%0.2f" % [@price.to_f]
+end
 end
