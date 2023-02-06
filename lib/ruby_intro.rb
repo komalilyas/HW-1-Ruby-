@@ -1,16 +1,22 @@
-# frozen_string_literal: true
-
-# Part 1
-#0  # returns 0 when given an empty array otherwise adds the elements in the array
+# # CSCE 606: Software Engineering Homework 1: Ruby on Rails 
+#Part 1 
 def sum(array)
   array.inject(0, :+)
 end
-#1  #sorts the array and adds the last two max items otherwise returns 0 when given empty array.
+
 def max_2_sum(array)
- 
-  array.sort.last(2).inject(0, :+)
+  arr2=[]
+  arr2= array.max(2){ |a, b| a<=>b} 
+  if arr2.length ==0
+    return 0
+  elsif arr2.length ==1
+    return arr[0]
+  else
+    arr2[0] + arr2[1]
+  end
 end
-#2 #Collects the combinations of 2 in the array and then sum the two numbers and checks if sum of two numbers== n
+
+
 def sum_to_n?(array, n)
   arr = array.combination(2)
   sumto_n = arr.find{|a,b| a+b==n}
@@ -22,18 +28,16 @@ def sum_to_n?(array, n)
 end
 
 # Part 2
-# Concatenate strings using (+)  Hello with name
 def hello(name)
-  return "Hello, " + name
+  str = "Hello, #{name}"
 end
 
 def starts_with_consonant?(string)
-  regex = /^[^aeiouAEIOU\W]/i
-  if regex.match(string) == nil
-    return false
-  else
+  if !!(s[0] =~ /[^aeiou]/i) and !!(s[0] =~ /[a-z]/i) 
     return true
-  end
+ else
+    return false
+ end
 end
 
 def binary_multiple_of_4?(string)
