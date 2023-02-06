@@ -5,15 +5,7 @@ def sum(array)
 end
 
 def max_2_sum(array)
-  arr2=[]
-  arr2= array.max(2){ |a, b| a<=>b} 
-  if arr2.length ==0
-    return 0
-  elsif arr2.length ==1
-    return arr[0]
-  else
-    arr2[0] + arr2[1]
-  end
+  array.sort.last(2).inject(0, :+)
 end
 
 
@@ -29,15 +21,16 @@ end
 
 # Part 2
 def hello(name)
-  str = "Hello, #{name}"
+  return "Hello, " + name
 end
 
 def starts_with_consonant?(string)
-  if !!(s[0] =~ /[^aeiou]/i) and !!(s[0] =~ /[a-z]/i) 
-    return true
- else
+  regex = /^[^aeiouAEIOU\W]/i
+  if regex.match(string) == nil
     return false
- end
+  else
+    return true
+  end
 end
 
 def binary_multiple_of_4?(string)
